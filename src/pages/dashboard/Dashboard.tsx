@@ -1,0 +1,180 @@
+
+import Header from "../../components/Header"
+import ShoppingBagRoundedIcon from '@mui/icons-material/ShoppingBag';
+import LiquorRoundedIcon from '@mui/icons-material/Liquor';
+import InventoryRounedIcon from '@mui/icons-material/Inventory';
+import Chart from 'chart.js/auto'
+import { Bar } from "react-chartjs-2";
+import { dummyData } from "../../data/Dummy";
+import { CategoryScale } from "chart.js";
+Chart.register(CategoryScale);
+
+const Dashboard = () => {
+    const iconStyle = {
+        fontSize: "40px",
+        lineHeight: "42px"
+    }
+
+    const data = {
+        labels: dummyData.map((data: any) => data.day),
+        datasets: [
+            {
+
+                label: "Orders",
+                data: dummyData.map((data: any) => data.order),
+                backgroundColor: "#118ab2"
+            },
+            {
+
+                label: "Completed",
+                data: dummyData.map((data: any) => data.completed),
+                backgroundColor: "#06d6a0"
+            },
+            {
+
+                label: "Returned",
+                data: dummyData.map((data: any) => data.returned),
+                backgroundColor: "#ef476f"
+            }
+        ]
+
+    }
+
+    return (
+        <div className="w-full flex flex-col flex-grow gap-y-2">
+            <Header>
+                Dashboard
+            </Header>
+            <div className="w-full flex flex-col">
+                <div className="w-full flex-[1] flex flex-row px-2 gap-x-2 flex-wrap">
+                    <div className="flex-[1] p-2 rounded-lg border flex flex-col justify-between shadow-md" >
+                        <div className="flex flex-row items-start justify-between">
+                            <div className="text-2xl font-bold">
+                                Orders
+                            </div>
+                            <div className="text-pale-blue p-2 bg-pale-blue bg-opacity-20 rounded-lg">
+                                <ShoppingBagRoundedIcon style={iconStyle} />
+                            </div>
+                        </div>
+                        <div>
+                            <div className="w-full flex flex-row items-start font-bold gap-x-1 py-2">
+                                <div className="text-2xl">
+                                    143
+                                </div>
+                                <div className="text-pale-green">
+                                    NEW
+                                </div>
+                            </div>
+
+                            <div className="w-full text-gray-500 font-semibold">
+                                15 Completed
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex-[1] p-2 rounded-lg border flex flex-col justify-between shadow-md" >
+                        <div className="flex flex-row items-start justify-between">
+                            <div className="text-2xl font-bold">
+                                Products
+                            </div>
+                            <div className="text-pale-green p-2 bg-pale-green bg-opacity-20 rounded-lg">
+                                <LiquorRoundedIcon style={iconStyle} />
+                            </div>
+                        </div>
+                        <div className="flex flex-col justify-center">
+                            <div className="flex flex-row items-end gap-x-1 font-bold py-2">
+                                <div className="text-2xl">
+                                    20
+                                </div>
+                                <div className="text-gray-500">
+                                    Products
+                                </div>
+                            </div>
+                            <div className="flex flex-row items-end gap-x-1 font-bold text-gray-500">
+                                <div className="">
+                                    36
+                                </div>
+                                <div className="">
+                                    Variants
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex-[1] p-2 rounded-lg border flex flex-col justify-between shadow-md" >
+                        <div className="flex flex-row items-start justify-between">
+                            <div className="text-2xl font-bold">
+                                Inventory
+                            </div>
+                            <div className="text-pale-black p-2 bg-pale-black bg-opacity-20 rounded-lg">
+                                <InventoryRounedIcon style={iconStyle} />
+                            </div>
+                        </div>
+                        <div className="flex flex-col">
+                            <div className="flex flex-row items-end gap-x-1 font-bold">
+                                <div className="text-2xl text-pale-red">
+                                    20
+                                </div>
+                                <div className="text-gray-500">
+                                    Low Stock
+                                </div>
+                            </div>
+                            <div className="flex flex-row items-end gap-x-1 font-bold">
+                                <div className="text-2xl text-pale-green">
+                                    5
+                                </div>
+                                <div className="text-gray-500">
+                                    High Stock
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="w-full flex-grow flex flex-row gap-x-2 p-2 flex-wrap">
+
+                    <div className="max-w-full flex flex-col flex-1">
+                        <div className="w-full text-xl text-center font-bold py-2">
+                            Weekly Orders
+                        </div>
+                        <div className="flex flex-1 border-2 rounded-lg">
+
+                            <Bar
+                                datasetIdKey='id'
+                                options={{
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    },
+                                    maintainAspectRatio: false
+                                }}
+                                style={{ width: "calc(100% - 20px)" }}
+                                data={data} />
+                        </div>
+                    </div>
+                    <div className="max-w-full flex flex-col flex-1">
+                        <div className="w-full text-xl text-center font-bold py-2">
+                            Weekly Orders
+                        </div>
+                        <div className="flex flex-1 border-2 rounded-lg">
+
+                            <Bar
+                                datasetIdKey='id'
+                                options={{
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    },
+                                    maintainAspectRatio: false
+                                }}
+                                style={{ width: "calc(100% - 20px)" }}
+                                data={data} />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Dashboard
