@@ -59,7 +59,7 @@ const LeftSideBar = () => {
     }
 
     return (
-        <div className="max-w-[200px] flex flex-col flex-grow gap-y-2 border-r bg-pale-blue text-white text-opacity-[87%]">
+        <div className="h-[100dvh] sticky top-0 bottom-0 left-0 flex flex-col gap-y-2 border-r bg-pale-blue text-white text-opacity-[87%]">
             <div className='flex flex-row items-center p-2 gap-x-2'>
                 <div className=''>
                     <MenuRoundedIcon />
@@ -68,13 +68,13 @@ const LeftSideBar = () => {
                     Nel Shop
                 </span>
             </div>
-            <div className="flex flex-col flex-grow gap-y-2 ">
+            <div className="flex flex-col flex-grow gap-y-2 transition-colors ease-in-out duration-300">
 
                 {routes.map((route: any, index: number) => (
                     <div
                         onClick={() => goToPages(route.path)}
                         key={index}
-                        className={`${activeTab === route.path ? "bg-white bg-opacity-10" : ""} flex flex-row items-center gap-x-2 cursor-pointer p-2`}>
+                        className={`${activeTab === route.path ? "bg-white bg-opacity-30 font-bold" : ""} flex flex-row items-center gap-x-2 cursor-pointer p-2 hover:bg-white hover:bg-opacity-10`}>
                         {route.icon}
                         <span className='text-xl'>
                             {route.title}

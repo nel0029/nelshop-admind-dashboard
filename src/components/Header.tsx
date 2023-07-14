@@ -6,7 +6,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ children }) => {
     return (
-        <div className="flex flex-row items-centerflex-grow font-bold text-2xl p-2 gap-x-2">
+        <div className="w-full flex flex-row items-center font-bold text-2xl p-2 gap-x-2 sticky top-0 bg-white">
             {children}
         </div>
     )
