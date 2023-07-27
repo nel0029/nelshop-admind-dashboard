@@ -1,10 +1,15 @@
 import { useState } from "react"
+import { useNavigate } from "react-router"
 import Header from "../../components/Header"
 import Menu from "../../components/Menu"
 import { orders } from "../../data/DummyOrders"
+import Button from "../../components/Button"
 
+
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
 
 const Orders = () => {
+    const navigate = useNavigate()
     const [activeTab, setActiveTab] = useState("All")
     const [ordersFilteredData, setOrdersFilteredData] = useState("All")
 
@@ -32,28 +37,28 @@ const Orders = () => {
     ]
 
     const orderStatus = ["All", "Pending", "Preparing", "Shipped", "Delivered", "Received", "Cancelled", "Returned"]
+
+    const newOrder = () => {
+        navigate('/orders/new')
+    }
     return (
         <div className="flex flex-col flex-grow gap-y-2">
             <Header>
                 Orders
             </Header>
             <div className="w-full flex flex-col px-2">
-                <div className="w-full flex flex-row items-center justify-around">
-                    {tabs.map((tab: any, index: number) => (
-                        <div
-                            key={index}
-                            onClick={() => goToTab(tab.title)}
-                            className={`${activeTab === tab.title ? "border-x border-t " : "border-b"} rounded-t-lg flex-1 flex flex-row items-center justify-center cursor-pointer py-2 hover:bg-pale-blue hover:bg-opacity-20`} >
-                            {tab.title}
-                        </div>
-                    ))}
-                </div>
-                <div className="w-full border-x">
-                    <div className="w-full flex flex-row items-center justify-end py-2">
+
+                <div className="w-full ">
+                    <div className="w-full flex flex-row items-center justify-end py-2 gap-x-2">
                         <Menu
                             menuOptions={orderStatus}
                             option={ordersFilteredData}
                             setOption={setOrdersFilteredData} />
+                        <Button
+                            onClick={newOrder}
+                            label="New Order"
+                            iconStart={<AddRoundedIcon />}
+                            variant="blue" />
                     </div>
                     <table className="w-full border-b">
                         <tr className="flex justify-around items-center border-y-2 border-black">

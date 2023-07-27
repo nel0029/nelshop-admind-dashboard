@@ -9,3 +9,9 @@
   transition: all;
 
 }
+
+.menu-expanded {
+  transition-property: width, height;
+  transition-timing-function: ease-in-out;
+  transition-duration: 2s;
+}

@@ -74,7 +74,7 @@ const Dashboard = () => {
                 Dashboard
             </Header>
             <div className="w-full flex flex-col">
-                <div className="w-full flex-[1] flex flex-row px-2 gap-x-2 flex-wrap">
+                <div className="w-full flex flex-row px-2 gap-x-2 flex-wrap">
                     <div className="flex-[1] p-2 rounded-lg border flex flex-col justify-between shadow-md" >
                         <div className="flex flex-row items-start justify-between">
                             <div className="text-2xl font-bold">
@@ -92,10 +92,6 @@ const Dashboard = () => {
                                 <div className="text-pale-green">
                                     NEW
                                 </div>
-                            </div>
-
-                            <div className="w-full text-gray-500 font-semibold">
-                                15 Completed
                             </div>
                         </div>
                     </div>
@@ -117,14 +113,7 @@ const Dashboard = () => {
                                     Products
                                 </div>
                             </div>
-                            <div className="flex flex-row items-end gap-x-1 font-bold text-gray-500">
-                                <div className="">
-                                    36
-                                </div>
-                                <div className="">
-                                    Variants
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                     <div className="flex-[1] p-2 rounded-lg border flex flex-col justify-between shadow-md" >
@@ -145,23 +134,16 @@ const Dashboard = () => {
                                     Low Stock
                                 </div>
                             </div>
-                            <div className="flex flex-row items-end gap-x-1 font-bold">
-                                <div className="text-2xl text-pale-green">
-                                    5
-                                </div>
-                                <div className="text-gray-500">
-                                    High Stock
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
                 <div className="w-full text-xl font-bold py-4 px-2">
                     Weekly Orders
                 </div>
-                <div className="w-full flex-1 flex flex-row gap-x-2 p-2 flex-wrap">
+                <div className="w-full flex-1 flex flex-row justify-around p-2 overflow-hidden">
 
-                    <div className="max-w-full flex flex-col flex-1 border-2 rounded-lg p-2">
+                    <div className="max-w-[500px] flex flex-col flex-1 border-2 rounded-lg p-2">
                         <div className="flex flex-row items-center justify-end gap-x-2 py-2">
                             <div>
                                 Filter:
@@ -187,7 +169,7 @@ const Dashboard = () => {
                                 data={handleData(dummyData, barFilteredData)} />
                         </div>
                     </div>
-                    <div className="max-w-full flex flex-col flex-1 border-2 rounded-lg p-2">
+                    <div className="max-w-[500px] flex flex-col flex-1 border-2 rounded-lg p-2">
                         <div className="flex flex-row items-center justify-end gap-x-2 py-2">
                             <div>
                                 Filter:

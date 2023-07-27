@@ -2,8 +2,15 @@ import RoutesPage from "./routes/RoutesPage"
 
 
 const Main = () => {
+    const menuWidth = {
+        transitionProperty: "width, height",
+        transitionTimingFunction: "ease-in-out",
+        transitionDuration: "2s"
+    }
     return (
-        <div className="flex justify-center flex-[1]">
+        <div
+            style={menuWidth}
+            className="flex justify-center flex-[1]">
             <RoutesPage />
         </div>
     )
